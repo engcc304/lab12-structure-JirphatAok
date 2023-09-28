@@ -88,10 +88,69 @@
 */
 
 #include <stdio.h>
-
+#include <string>
+struct Student {
+    char Name[20];
+    char Last[20] ;
+    char ID[5];
+    float ScoreSub1;
+    float ScoreSub2;
+    float ScoreSub3;
+    float ScoreSub4;
+    float ScoreSub5;
+};
+void calculateGrade(float score) {
+    if (score >= 76 && score <= 80) printf ( " A" ) ;
+    else if (score >= 71 && score <= 75) printf ( "  B+" ) ;
+    else if (score >= 66 && score <= 70) printf ( " B" ) ;
+    else if (score >= 61 && score <= 65) printf ( "  C+" ) ;
+    else if (score >= 56 && score <= 60) printf ( " C" ) ;
+    else if (score >= 51 && score <= 55) printf ( "  D+" ) ;
+    else if (score >= 50 && score <= 54) printf ( " D" ) ;
+    else if (score >= 0 && score <= 49 )printf ( " F" ) ;
+}
 int main() {
+    struct Student S[3];
+    int i ;
+    for (int i = 0; i < 3; i++) {
+        printf("Name:\n");
+        scanf("%s %s", S[i].Name,S[i].Last);
 
-    //--| YOUR CODE HERE
+        printf("ID:\n");
+        scanf("%s", S[i].ID);
 
-    return 0 ;
-}//end main function
+        printf("Scores in Subject 1:\n");
+        scanf("%f", &S[i].ScoreSub1);
+
+        printf("Scores in Subject 2:\n");
+        scanf("%f", &S[i].ScoreSub2);
+
+        printf("Scores in Subject 3:\n");
+        scanf("%f", &S[i].ScoreSub3);
+
+        printf("Scores in Subject 4:\n");
+        scanf("%f", &S[i].ScoreSub4);
+        
+        printf("Scores in Subject 5:\n");
+        scanf("%f", &S[i].ScoreSub5);
+    }
+    float averageScore = (S[i].ScoreSub1 + S[i].ScoreSub2 + S[i].ScoreSub3 + S[i].ScoreSub4 + S[i].ScoreSub5) / 5.0;
+    printf("Student Details:\n");
+
+    for (int i = 0; i < 3; i++) {
+        printf("Student %d:\n", i+1 );
+        printf("Name: %s %s\n", S[i].Name,S[i].Last);
+        printf("ID: %s\n", S[i].ID);
+        printf("Scores: %.0f %.0f %.0f %.0f %.0f\n", S[i].ScoreSub1, S[i].ScoreSub2, S[i].ScoreSub3, S[i].ScoreSub4, S[i].ScoreSub5);
+        printf("Grades:" ) ;
+        calculateGrade( S[i].ScoreSub1) ;
+        calculateGrade( S[i].ScoreSub2) ;
+        calculateGrade( S[i].ScoreSub3) ;
+        calculateGrade( S[i].ScoreSub4) ;
+        calculateGrade( S[i].ScoreSub5) ;
+
+        printf("\nAverage Scores: %.2f",averageScore ) ;
+    }
+
+    return 0;
+}
