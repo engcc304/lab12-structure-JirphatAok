@@ -112,7 +112,7 @@ void calculateGrade(float score) {
 int main() {
     struct Student S[3];
     int i ;
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i < 3; i++) {
         printf("Name:\n");
         scanf("%s %s", S[i].Name,S[i].Last);
 
@@ -137,7 +137,7 @@ int main() {
     float averageScore = (S[i].ScoreSub1 + S[i].ScoreSub2 + S[i].ScoreSub3 + S[i].ScoreSub4 + S[i].ScoreSub5) / 5.0;
     printf("Student Details:\n");
 
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i < 3; i++) {
         printf("Student %d:\n", i+1 );
         printf("Name: %s %s\n", S[i].Name,S[i].Last);
         printf("ID: %s\n", S[i].ID);
